@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NewsHub BD – Multi-Source News Aggregator</title>
+  
+  <!-- Adds the square NH icon to the browser tab -->
+  <link rel="icon" href="5-icon-on-dark.png" type="image/png">
+  
+  <!-- Connects the CSS file (v=6 forces the browser to clear the cache) -->
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+  <!-- TOP BAR: Logo and dark mode button -->
+  <header class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="newshub-bd-logo-dark.svg" alt="NewsHub BD Logo" class="brand-logo">
+    </a>
+    <button id="themeBtn" class="theme-btn" style="margin-left:auto" aria-label="Toggle light/dark mode">🌙</button>
+  </header>
+
+  <!-- BIG TITLE -->
+  <section class="hero">
+    <h1>All Bangladeshi news. One place.</h1>
+    <p>Updated every 15 minutes from top Bangladeshi TV channels and newspapers.</p>
+  </section>
+
+  <main class="container">
+    <!-- Category buttons are added here by script.js -->
+    <nav id="tabs" class="tabs"></nav>
+
+    <!-- Source filter (choose one TV channel or newspaper) -->
+    <div class="filter-row">
+      <label for="sourceSelect">Source:</label>
+      <select id="sourceSelect"><option value="">All sources</option></select>
+      <span id="count" class="count"></span>
+    </div>
+
+    <!-- News cards are added here by script.js -->
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <footer>© 2026 NewsHub BD · Built by Sumaiya Islam Kanta, ISTT · <a href="admin.html">Admin</a></footer>
+
+  <!-- Connects the working logic file -->
+  <script src="script.js"></script>
+</body>
+</html>

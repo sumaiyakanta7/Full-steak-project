@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin – Scraper Health</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">🛠️ Admin Panel</div>
+    <a href="index.html" style="color:#fff">← Back to site</a>
+  </header>
+
+  <main class="container">
+    
+    <!-- Manual Login Panel -->
+    <div class="panel" id="loginPanel" style="display: flex; flex-direction: column; align-items: center; padding: 40px; gap: 20px; max-width: 400px; margin: 40px auto;">
+      <h2>Admin Login</h2>
+      <div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+        <input id="username" type="text" placeholder="Username" style="padding: 12px; border-radius: 8px; border: 1px solid var(--muted); font-size: 1rem;">
+        <input id="password" type="password" placeholder="Password" style="padding: 12px; border-radius: 8px; border: 1px solid var(--muted); font-size: 1rem;">
+        <button class="btn" onclick="manualLogin()" style="width: 100%; font-size: 1.1rem; padding: 12px;">Secure Login</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Controls -->
+    <div class="panel admin-controls" id="dashboardControls" style="display: none; justify-content: space-between; align-items: center;">
+      <div style="display: flex; gap: 10px;">
+        <button class="btn" onclick="loadData()">🔄 Refresh Data</button>
+        <button class="btn" onclick="fetchNewsNow()" style="background:var(--pink)">⚡ Fetch News Now</button>
+      </div>
+      <button class="btn" onclick="logout()" style="background:var(--muted);">Logout</button>
+    </div>
+
+    <p id="msg" class="msg"></p>
+
+    <!-- Metrics Cards -->
+    <div class="metrics-grid" id="metricsPanel" style="display: none;">
+      <div class="metric-card">
+        <h3>Total Sources</h3>
+        <p id="totSources">0</p>
+      </div>
+      <div class="metric-card">
+        <h3>Active / Failing</h3>
+        <p id="actSources">0 / 0</p>
+      </div>
+      <div class="metric-card">
+        <h3>Total Articles</h3>
+        <p id="totArticles">0</p>
+      </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="panel" id="tablePanel" style="display: none;">
+      <table class="modern-table">
+        <thead>
+          <tr>
+            <th>Source Name</th>
+            <th>Type</th>
+            <th>Scraper Status</th>
+            <th>Last Checked</th>
+            <th>Articles</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
